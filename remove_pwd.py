@@ -20,7 +20,7 @@ if uploaded_file is not None and remove:
     try:
         decrypted = io.BytesIO()
 
-        with open(name, "rb") as f:
+        with open("C:\\Delete\\"+name, "rb") as f:
             file = msoffcrypto.OfficeFile(f)
             file.load_key(password=pwd)  # Use password
             file.decrypt(decrypted)
@@ -32,7 +32,10 @@ if uploaded_file is not None and remove:
 
         os.remove(name)
 
-        df.to_excel(name) 
+        df.to_excel(name,index=False) 
+
+        with open("C:\\Delete\\"+name, "rb") as f:
+            pass
 
         st.success("Password has been removed") 
 
