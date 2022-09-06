@@ -14,8 +14,8 @@ remove = st.button("Remove password")
 
 if uploaded_file is not None and remove:
     
-name = uploaded_file.name
-st.write("Name of file: ",name)
+    name = uploaded_file.name
+    st.write("Name of file: ",name)
 
     decrypted = io.BytesIO()
 
