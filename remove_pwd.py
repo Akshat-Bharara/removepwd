@@ -17,27 +17,25 @@ if uploaded_file is not None and remove:
     name = uploaded_file.name
     st.write("Name of file: ",name)
 
-    try:
-        decrypted = io.BytesIO()
+    decrypted = io.BytesIO()
 
-        with open("C:\\Delete\\"+name, "rb") as f:
-            file = msoffcrypto.OfficeFile(f)
-            file.load_key(password=pwd)  # Use password
-            file.decrypt(decrypted)
+    with open("C:\\Delete\\"+name, "rb") as f:
+        file = msoffcrypto.OfficeFile(f)
+        file.load_key(password=pwd)  # Use password
+        file.decrypt(decrypted)
 
-        df = pd.read_excel(decrypted)
+    df = pd.read_excel(decrypted)
 
-        file_container = st.expander("Check your uploaded .csv")
-        st.write(df)
+    file_container = st.expander("Check your uploaded .csv")
+    st.write(df)
 
-        os.remove(name)
+    os.remove(name)
 
-        df.to_excel(name,index=False) 
+    df.to_excel(name,index=False) 
 
-        with open("C:\\Delete\\"+name, "rb") as f:
-            pass
+    with open("C:\\Delete\\"+name, "rb") as f:
+        pass
 
-        st.success("Password has been removed") 
+    st.success("Password has been removed") 
 
-    except:
-        st.warning('Password has already been removed')
+
