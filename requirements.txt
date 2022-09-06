@@ -1,1 +1,2 @@
 msoffcrypto-tool==4.12.0
+openpyxl
