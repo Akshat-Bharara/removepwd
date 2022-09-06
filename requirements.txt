@@ -1,1 +1,1 @@
-msoffcrypto==4.11.0
+py3-msoffcrypto-too==4.12.0
