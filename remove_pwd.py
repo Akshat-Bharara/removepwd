@@ -1,7 +1,6 @@
 import msoffcrypto
 import io
 import pandas as pd
-import os
 import streamlit as st
 
 st.title('Remove Excel Passwords 🔑')
@@ -26,16 +25,19 @@ if uploaded_file is not None and remove:
 
     df = pd.read_excel(decrypted)
 
-    file_container = st.expander("Check your uploaded .csv")
+    file_container = st.expander("Check your uploaded .csv",expanded=True)
     st.write(df)
 
-    os.remove(name)
+    d = df.to_excel(name,index=False) 
 
-    df.to_excel(name,index=False) 
+    filename = st.text_input('Enter excel name: ')
+    filename+=".xlsx"
 
-    with open("C:\\Delete\\"+name, "rb") as f:
-        pass
+    st.download_button(
+     label="Download excel file",
+     data=d,
+     file_name=filename,
+     mime='excel',
+    )
 
     st.success("Password has been removed") 
-
-
