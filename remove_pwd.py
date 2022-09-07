@@ -32,8 +32,7 @@ if uploaded_file is not None and remove:
     st.download_button(
      label="Download excel file",
      data=df.to_csv().encode('utf-8'),
-     file_name=name+".xlsx",
-     mime='excel',
+     file_name=name
     )
 
     st.success("Password has been removed") 
