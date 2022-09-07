@@ -43,7 +43,7 @@ if uploaded_file is not None and remove:
     st.write(df)
     
     
-df_xlsx = to_excel(df)
-st.download_button(label='📥 Download Excel',
-                                data=df_xlsx ,
-                                file_name= name)
+    df_xlsx = to_excel(df)
+    st.download_button(label='📥 Download Excel',
+                                    data=df_xlsx ,
+                                    file_name= name)
