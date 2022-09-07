@@ -22,7 +22,7 @@ if uploaded_file is not None and remove:
         file = msoffcrypto.OfficeFile(f)
         file.load_key(password=pwd)  # Use password
         file.decrypt(decrypted)
-
+'''
     df = pd.read_excel(decrypted)
 
     file_container = st.expander("Check your uploaded .csv",expanded=True)
@@ -41,3 +41,4 @@ if uploaded_file is not None and remove:
     )
 
     st.success("Password has been removed") 
+'''
