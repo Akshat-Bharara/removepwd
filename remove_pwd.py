@@ -33,7 +33,7 @@ if uploaded_file is not None and remove:
      label="Download excel file",
      data=df.to_csv().encode('utf-8'),
      file_name=name+".xlsx",
-     mime='csv',
+     mime='excel',
     )
 
     st.success("Password has been removed") 
