@@ -31,7 +31,7 @@ if uploaded_file is not None and remove:
 
     st.download_button(
      label="Download excel file",
-     data=df.to_excel(name).encode('utf-8'),
+     data=df.to_excel(name),
      file_name=name,
      mime='csv',
     )
