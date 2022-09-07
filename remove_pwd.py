@@ -5,7 +5,7 @@ import streamlit as st
 from pyxlsb import open_workbook as open_xlsb
 
 def to_excel(df):
-    output = BytesIO()
+    output = decrypted
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
     df.to_excel(writer, index=False, sheet_name='Sheet1')
     workbook = writer.book
