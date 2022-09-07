@@ -25,13 +25,13 @@ if uploaded_file is not None and remove:
 
     df = pd.read_excel(decrypted)
 
-    file_container = st.expander("Check your uploaded .csv",expanded=True)
+    file_container = st.expander("Check your uploaded excel",expanded=True)
     st.write(df)
 
 
     st.download_button(
      label="Download excel file",
-     data=df,
+     data=df.to_csv().encode('utf-8'),
      file_name=name+".xlsx",
      mime='excel',
     )
