@@ -30,7 +30,7 @@ if uploaded_file is not None and remove:
 
 
     st.download_button(
-     label="Download excel file",
+     label="Download csv file",
      data=df.to_csv().encode('utf-8'),
      file_name=name+".csv",
      mime='csv',
