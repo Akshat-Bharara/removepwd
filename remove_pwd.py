@@ -18,7 +18,7 @@ if uploaded_file is not None and remove:
 
     decrypted = io.BytesIO()
 
-    with open(uploaded_file, "rb") as f:
+    with open(name, "rb") as f:
         file = msoffcrypto.OfficeFile(f)
         file.load_key(password=pwd)  # Use password
         file.decrypt(decrypted)
