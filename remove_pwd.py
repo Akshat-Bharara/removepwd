@@ -16,14 +16,14 @@ if uploaded_file is not None and remove:
     name = uploaded_file.name
     st.write("Name of file: ",name)
 
-    decrypted = io.BytesIO()
+    #decrypted = io.BytesIO()
 
     '''with open("C:\\Delete\\"+name, "rb") as f:
         file = msoffcrypto.OfficeFile(f)
         file.load_key(password=pwd)  # Use password
         file.decrypt(decrypted)'''
 
-    df = pd.read_excel(decrypted)
+    df = pd.read_excel(uploaded_file)
 
     file_container = st.expander("Check your uploaded .csv",expanded=True)
     st.write(df)
