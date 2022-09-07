@@ -27,18 +27,14 @@ if uploaded_file is not None and remove:
 
     file_container = st.expander("Check your uploaded .csv",expanded=True)
     st.write(df)
-'''
-    d = df.to_excel(name,index=False) 
 
-    filename = st.text_input('Enter excel name: ')
-    filename+=".xlsx"
 
     st.download_button(
      label="Download excel file",
-     data=d,
-     file_name=filename,
+     data=df.to_excel(name,index=False),
+     file_name=name+".xlsx",
      mime='excel',
     )
 
     st.success("Password has been removed") 
-'''
+
