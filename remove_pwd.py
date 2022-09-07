@@ -2,6 +2,20 @@ import msoffcrypto
 import io
 import pandas as pd
 import streamlit as st
+from pyxlsb import open_workbook as open_xlsb
+
+def to_excel(df):
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    df.to_excel(writer, index=False, sheet_name='Sheet1')
+    workbook = writer.book
+    worksheet = writer.sheets['Sheet1']
+    format1 = workbook.add_format({'num_format': '0.00'}) 
+    worksheet.set_column('A:A', None, format1)  
+    writer.save()
+    processed_data = output.getvalue()
+    return processed_data
+
 
 st.title('Remove Excel Passwords 🔑')
 
@@ -27,11 +41,9 @@ if uploaded_file is not None and remove:
 
     file_container = st.expander("Check your uploaded excel",expanded=True)
     st.write(df)
-
-    name.rstrip('.xlsx')
     
-    st.download_button(
-     label="Download csv file",
-     data=df.to_csv().encode('utf-8'),
-     file_name=name
-    )
+    
+df_xlsx = to_excel(df)
+st.download_button(label='📥 Download Excel',
+                                data=df_xlsx ,
+                                file_name= name)
