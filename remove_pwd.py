@@ -29,11 +29,9 @@ if uploaded_file is not None and remove:
     st.write(df)
 
     name.rstrip('.xlsx')
+    
     st.download_button(
      label="Download csv file",
      data=df.to_csv().encode('utf-8'),
      file_name=name
     )
-
-    st.success("Password has been removed") 
-
